@@ -2,18 +2,19 @@ import os
 from appointment import Appointment
 
 def print_appointment_header():
+    '''Function for printing the table header'''
     print(f"{'Client Name':20s}{'Phone':15s}{'Day':10s}{'Start':7s}{'':3s}{'End':<10s}{'Type':<20s}")
     print("-"*80)
 
 def show_appointments_by_name(appointment_list, name):
     '''Function for showing appointments based on input name'''
     print_appointment_header()
-    check = True
+    check = False
     for appointment in appointment_list:
         if name.lower() in appointment.lower():
             print(appointment)
-            check = False
-    if check:
+            check = True
+    if not check:
         print("No appointments found.")
 
 def show_appointments_by_day(appointment_list, day):
