@@ -11,12 +11,12 @@ def show_appointments_by_name(appointment_list, name):
     print_appointment_header()
     check = False
     for appointment in appointment_list:
-        if name.lower() in appointment.lower():
-            print(appointment)
+        if name.lower() in appointment.get_client_name().lower():
             check = True
+            print(appointment)
     if not check:
         print("No appointments found.")
-
+           
 def show_appointments_by_day(appointment_list, day):
     '''Function for showing appointments based on input day'''
     print_appointment_header()
