@@ -1,11 +1,6 @@
 import os
 from appointment import Appointment
 
-def print_appointment_header():
-    '''Function for printing table_header'''
-    print(f"{'Client Name':20s}{'Phone':15s}{'Day':10s}{'Start':7s}{'':3s}{'End':<10s}{'Type':<20s}")
-    print("-"*80)
-
 def show_appointments_by_name(appointment_list, name):
     '''Function for showing appointments based on input name'''
     print_appointment_header()
@@ -23,6 +18,11 @@ def show_appointments_by_day(appointment_list, day):
     for appointment in appointment_list:
         if day.lower() == appointment.get_day_of_week().lower():
             print(appointment)
+
+def print_appointment_header():
+    '''Function for printing table_header'''
+    print(f"{'Client Name':20s}{'Phone':15s}{'Day':10s}{'Start':7s}{'':3s}{'End':<10s}{'Type':<20s}")
+    print("-"*80)
 
 def create_weekly_schedule(appointment_list, open_days):
     '''Function for populating the appointment list with appointment objects'''

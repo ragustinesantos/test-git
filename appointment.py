@@ -83,4 +83,3 @@ class Appointment:
     def __str__(self):
         '''Return a string representation of an appointment object'''
         return f"{self.__client_name:20s}{self.__client_phone:15s}{self.__day_of_week:10s}{self.__start_time_hour.strftime('%H:%M'):7s}{'-':3s}{self.get_end_time_hour():<10s}{self.get_appt_type_desc():<20s}"
-    
