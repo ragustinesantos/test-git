@@ -6,26 +6,21 @@ def print_appointment_header():
     print("-"*80)
 
 def show_appointments_by_name(appointment_list, name):
+    '''Function for showing appointments based on input name'''
     print_appointment_header()
-
     check = True
-    # Searches the list of Appointments for corresponding client name, allowing for partial & non-case sensitive matches
-    #print all appointments that match the input of the get day. 
     for appointment in appointment_list:
-        if name.lower() in appointment.__str__().lower():
-            # Displays all matching appointments in the format given in the Sample Run (hint: use the __str__() method implicitly)
+        if name.lower() in appointment.lower():
             print(appointment)
             check = False
     if check:
         print("No appointments found.")
 
 def show_appointments_by_day(appointment_list, day):
+    '''Function for showing appointments based on input day'''
     print_appointment_header()
-
-    # Searches the list of Appointments for the corresponding day
     for appointment in appointment_list:
         if day.lower() == appointment.get_day_of_week().lower():
-            # Displays all matching appointments in the format given in the Sample Run (hint: use the __str__() method implicitly)
             print(appointment)
 
 def create_weekly_schedule(appointment_list, open_days):
