@@ -2,26 +2,31 @@ import os
 from appointment import Appointment
 
 def print_appointment_header():
-    '''Function for printing the table header'''
     print(f"{'Client Name':20s}{'Phone':15s}{'Day':10s}{'Start':7s}{'':3s}{'End':<10s}{'Type':<20s}")
     print("-"*80)
 
 def show_appointments_by_name(appointment_list, name):
-    '''Function for showing appointments based on input name'''
     print_appointment_header()
+
     check = False
+    # Searches the list of Appointments for corresponding client name, allowing for partial & non-case sensitive matches
+    #print all appointments that match the input of the get day. 
     for appointment in appointment_list:
         if name.lower() in appointment.get_client_name().lower():
+            # Displays all matching appointments in the format given in the Sample Run (hint: use the __str__() method implicitly)
             check = True
             print(appointment)
+            
     if not check:
         print("No appointments found.")
-           
+
 def show_appointments_by_day(appointment_list, day):
-    '''Function for showing appointments based on input day'''
     print_appointment_header()
+    
+    # Searches the list of Appointments for the corresponding day
     for appointment in appointment_list:
         if day.lower() == appointment.get_day_of_week().lower():
+            # Displays all matching appointments in the format given in the Sample Run (hint: use the __str__() method implicitly)
             print(appointment)
 
 def create_weekly_schedule(appointment_list, open_days):
@@ -174,10 +179,11 @@ def main():
                 print("Sorry that time slot is not in the weekly calendar!")
             else:
                 appoint : Appointment = find_appointment_by_time(day, hour, appointment_list)
+             
                 if (appoint.get_appt_type() == 0):
                     print("That time slot isn't booked and doesn't need to be cancelled")
                 else:
-                    print("Appointment: " + day + " " + appoint.get_start_time_hour() + " - " + appoint.get_end_time_hour() +
+                    print("Appointment: " + day.capitalize() + " " + appoint.get_start_time_hour() + " - " + appoint.get_end_time_hour() +
                         " for " + appoint.get_client_name() + " has been cancelled!")
                     appoint.cancel()
 
@@ -189,7 +195,7 @@ def main():
                 save_scheduled_appointments(appointment_list)
             print("Good Bye!")
 
-print("Starting the Appointment Manager System hihi")
+print("Starting the Appointment Manager System")
 
 # Application
 main()
