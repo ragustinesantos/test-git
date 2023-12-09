@@ -193,7 +193,7 @@ def main():
                 save_scheduled_appointments(appointment_list)
             print("Good Bye!")
 
-print("Starting the Appointment Manager System")
+print("Starting the Appointment Manager System hihi")
 
 # Application
 main()
